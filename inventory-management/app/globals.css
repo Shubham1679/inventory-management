@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@media (min-width: 768px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 20vh);
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 7.5vh);
+  }
+}
+
+:root {
+  --tooltip-bg: #ffffff;
+  --tooltip-border: #e5e7eb;
+  --tooltip-text: #111827;
+  --chart-text: #6b7280;
+  --datagrid-header-bg: #f9fafb;
+  --datagrid-header-text: #111827;
+  --datagrid-cell-text: #374151;
+  --datagrid-border: #e5e7eb;
+  --datagrid-row-bg: #ffffff;
+  --datagrid-row-hover: #f3f4f6;
+  --datagrid-checkbox: #6b7280;
+}
+
+.dark {
+  --tooltip-bg: #1f2937;
+  --tooltip-border: #374151;
+  --tooltip-text: #f9fafb;
+  --chart-text: #9ca3af;
+  --datagrid-header-bg: #1f2937;
+  --datagrid-header-text: #f9fafb;
+  --datagrid-cell-text: #d1d5db;
+  --datagrid-border: #374151;
+  --datagrid-row-bg: #1f2937;
+  --datagrid-row-hover: #374151;
+  --datagrid-checkbox: #9ca3af;
+}
