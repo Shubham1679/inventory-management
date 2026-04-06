@@ -77,8 +77,8 @@ const CardPurchaseSummary = () => {
                     borderColor: "var(--tooltip-border, #e5e7eb)",
                     color: "var(--tooltip-text, #111827)",
                   }}
-                  formatter={(value: number) => [
-                    `$${value.toLocaleString("en")}`,
+                  formatter={(value: number | undefined) => [
+                    `$${(value ?? 0).toLocaleString("en")}`,
                   ]}
                   labelFormatter={(label) => {
                     const date = new Date(label);
