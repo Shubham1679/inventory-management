@@ -25,6 +25,8 @@ type AggregatedData = {
   [category: string]: AggregatedDataItem;
 };
 
+const PALETTE = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884d8", "#82ca9d"];
+
 const Expenses = () => {
   const [activeindex, setActiveIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -59,11 +61,14 @@ const Expenses = () => {
       .reduce((acc: AggregatedData, data: ExpenseByCategorySummary) => {
         const amount = parseInt(data.amount);
         if (!acc[data.category]) {
-          acc[data.category] = { name: data.category, amount: 0 };
-          acc[data.category].color =
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-          acc[data.category].amount += amount;
+          const colorIndex = Object.keys(acc).length;
+          acc[data.category] = { 
+            name: data.category, 
+            amount: 0,
+            color: PALETTE[colorIndex % PALETTE.length],
+          };
         }
+        acc[data.category].amount += amount;
         return acc;
       }, {});
 
